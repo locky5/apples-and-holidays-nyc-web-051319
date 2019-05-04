@@ -33,13 +33,11 @@ end
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, data|
     puts "#{season.to_s.capitalize!}:" ##ex. Winter:
-      data.each do |holiday, supply| ##data refers to the holidays
+      data.each do |holiday, supply| ##ONE HOLIDAY AT A TIME
         array = holiday.to_s.split("_") ##new_years --> new years
         final_holiday = []
-          array.each do |x|
-            final_holiday << x.capitalize! ##new years --> New Years
-          end
-        holiday = final_holiday.join(" ") ##Christmas New Years
+        final_holiday << array.capitalize ##new years --> New Years
+        holiday = final_holiday.join(" ") ##New Years
         supply = supply.join(", ") ##Lights, Wreath
         puts "  #{holiday}: #{supply}" ## Christmas: Lights, Wreath (space is required)
       end
